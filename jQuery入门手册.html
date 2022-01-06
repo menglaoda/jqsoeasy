@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			h1{
+				text-align: center;
+			}
+			p{
+				text-indent: 32px;
+				word-break: break-all;
+			}
+			img{
+				margin-left: 32px;
+			}
+			.wrap{
+				width: 80%;
+				margin: 0 auto;
+			}
+			.box{
+				margin-left: 30px;
+			}
+			details{
+				display: block;
+				margin: 15px 0px;
+			}
+			summary{
+				border: none;
+				outline: medium;
+			}
+			h1,.oh1{
+				font-size: 30px;
+				font-weight: 900;
+			}
+			h2,.oh2{
+				font-size: 24px;
+				font-weight: 900;
+			}
+			h3,.oh3{
+				font-size: 20px;
+				font-weight: 900;
+			}
+			h4,.oh4{
+				font-size: 18px;
+				font-weight: 900;
+			}
+			h5,.oh5{
+				font-size: 16px;
+				font-weight: 900;
+			}
+			h6,.oh6{
+				font-size: 14px;
+				font-weight: 900;
+			}
+		</style>
+		
+		<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js" ></script>
+		<script>
+			
+			$(function($){
+				//你可以在这里继续使用$作为别名
+			})
+			
+		</script>
+		
+	</head>
+	<body>
+		<h1>jQuery入门手册</h1>
+		<div class="wrap">
+			<details>
+				<summary class="oh3">1. 什么是jQuery？</summary>
+				<p>jQuery是一个快速、简洁的JavaScript框架，是继Prototype之后又一个优秀的JavaScript代码库（框架）于2006年1月由John Resig发布。jQuery设计的宗旨是“write Less，Do More”，即倡导写更少的代码，做更多的事情。它封装JavaScript常用的功能代码，提供一种简便的JavaScript设计模式，优化HTML文档操作、事件处理、动画设计和Ajax交互。</p>
+			</details>
+			<details>
+				<summary class="oh3">2. jQuery安装</summary>
+				<p>从 jquery.com 下载 jQuery 库</p>
+				<p>从 CDN 中载入 jQuery, 如从 Google 中加载 jQuery，例如：https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js</p>
+			</details>	
+			<details>
+				<summary class="oh3">3. 文档就绪事件</summary>
+				<p>当DOM载入就绪可以查询及操纵时绑定一个要执行的函数。</p>
+				<p>在DOM加载完成时运行的代码，可以这样写：</p>
+				<img src="img/0.png" />
+				<p>或者使用 $(document).ready() 的简写，同时内部的 jQuery 代码依然使用 $ 作为别名</p>
+				<img src="img/1.png" />
+			</details>		
+			<details >
+				<summary class="oh3">4. jQuery 选择器</summary>
+				<div class="box">
+					<details>
+						<summary class="oh4">4.1 #id 选择器</summary>
+						<p>jQuery #id 选择器通过 HTML 元素的 id 属性选取指定的元素。</p>
+						<p>HTML 代码:</p>
+						<img src="img/2.png" />
+						<p>jQuery 代码:</p>
+						<img src="img/3.png" />
+						<p>结果:</p>
+						<img src="img/4.png" />
+					</details>
+					<details>
+						<summary class="oh4">4.2 类型选择器</summary>
+						<p>根据给定的元素名匹配所有元素。</p>
+						<p>HTML 代码:</p>
+						<img src="img/5.png" />
+						<p>jQuery 代码:</p>
+						<img src="img/6.png" />
+						<p>结果:</p>
+						<img src="img/7.png" />
+					</details>
+					<details>
+						<summary class="oh4">4.3 class选择器</summary>
+						<p>根据给定的类匹配元素。</p>
+						<p>HTML 代码:</p>
+						<img src="img/8.png" />
+						<p>jQuery 代码:</p>
+						<img src="img/9.png" />
+						<p>结果:</p>
+						<img src="img/10.png" />
+					</details>
+					<details>
+						<summary class="oh4">4.4 群组选择器</summary>
+						<p>将每一个选择器匹配到的元素合并后一起返回。</p>
+						<p>HTML 代码:</p>
+						<img src="img/11.png" />
+						<p>jQuery 代码:</p>
+						<img src="img/12.png" />
+						<p>结果:</p>
+						<img src="img/13.png" />
+					</details>
+					<details>
+						<summary class="oh4">4.5 后代选择器</summary>
+						<p>在给定的祖先元素下匹配所有的后代元素。</p>
+						<p>HTML 代码:</p>
+						<img src="img/14.png" />
+						<p>jQuery 代码:</p>
+						<img src="img/15.png" />
+						<p>结果:</p>
+						<img src="img/16.png" />
+					</details>
+					<details>
+						<summary class="oh4">4.6 子选择器</summary>
+						<p>在给定的父元素下匹配所有的子元素。</p>
+						<p>HTML 代码:</p>
+						<img src="img/17.png" />
+						<p>jQuery 代码:</p>
+						<img src="img/18.png" />
+						<p>结果:</p>
+						<img src="img/19.png" />
+					</details>
+					<details>
+						<summary class="oh4">4.7 :not选择器</summary>
+						<p>去除所有与给定选择器匹配的元素。</p>
+						<p>HTML 代码:</p>
+						<img src="img/20.png" />
+						<p>jQuery 代码:</p>
+						<img src="img/21.png" />
+						<p>结果:</p>
+						<img src="img/22.png" />
+					</details>
+					<details>
+						<summary class="oh4">4.8 :nth-child选择器</summary>
+						<div class="box">
+							<details>
+								<summary class="oh5">4.8.1 匹配其父元素下的第n个元素。</summary>
+								<p>HTML 代码:</p>
+								<img src="img/23.png" />
+								<p>jQuery 代码:</p>
+								<img src="img/32.png" />
+								<p>结果:</p>
+								<img src="img/33.png" />
+							</details>
+						</div>
+						<div class="box">
+							<details>
+								<summary class="oh5">4.8.2 匹配其父元素下的大于等于3的元素。</summary>
+								<p>HTML 代码:</p>
+								<img src="img/23.png" />
+								<p>jQuery 代码:</p>
+								<img src="img/24.png" />
+								<p>结果:</p>
+								<img src="img/25.png" />
+							</details>							
+						</div>
+						<div class="box">
+							<details>
+								<summary class="oh5">4.8.3 匹配其父元素下的小于于等于3的元素。</summary>
+								<p>HTML 代码:</p>
+								<img src="img/23.png" />
+								<p>jQuery 代码:</p>
+								<img src="img/26.png" />
+								<p>结果:</p>
+								<img src="img/27.png" />
+							</details>
+						</div>
+						<div class="box">
+							<details>
+								<summary class="oh5">4.8.4 匹配其父元素下的奇数元素。</summary>
+								<p>HTML 代码:</p>
+								<img src="img/23.png" />
+								<p>jQuery 代码:</p>
+								<img src="img/28.png" />
+								<p>结果:</p>
+								<img src="img/29.png" />
+							</details>							
+						</div>
+						<div class="box">
+							<details>
+								<summary class="oh5">4.8.5 匹配其父元素下的偶数元素。</summary>
+								<p>HTML 代码:</p>
+								<img src="img/23.png" />
+								<p>jQuery 代码:</p>
+								<img src="img/30.png" />
+								<p>结果:</p>
+								<img src="img/31.png" />
+							</details>
+						</div>
+						<div class="box">
+							<details>
+								<summary class="oh5">4.8.6 匹配其父元素下的第一个元素。</summary>
+								<p>HTML 代码:</p>
+								<img src="img/23.png" />
+								<p>jQuery 代码:</p>
+								<img src="img/34.png" />
+								<p>结果:</p>
+								<img src="img/33.png" />
+							</details>
+						</div>
+						<div class="box">
+							<details>
+								<summary class="oh5">4.8.7 匹配其父元素下的最后一个元素。</summary>
+								<p>HTML 代码:</p>
+								<img src="img/23.png" />
+								<p>jQuery 代码:</p>
+								<img src="img/35.png" />
+								<p>结果:</p>
+								<img src="img/36.png" />
+							</details>
+						</div>
+					</details>
+				</div>
+			</details>				
+		</div>
+	</body>
+</html>
