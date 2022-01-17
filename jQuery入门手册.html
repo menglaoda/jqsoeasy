@@ -87,6 +87,13 @@
 				color: white;
 				cursor: pointer;
 			}
+			.huojian{
+				position: fixed;
+				bottom: 20px;
+				right: 20px;
+				width: 30px;
+				cursor: pointer;
+			}
 		</style>
 		
 		<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js" ></script>
@@ -163,7 +170,21 @@
 				$(".stop-btn").click(function(){
 					$(".redbox").stop();
 				})
+				
+				//返回顶部
+				$(".huojian").click(function(){
+					var t1 = setInterval(function(){
+						var winy = $("html,body").scrollTop();
+						$("html,body").scrollTop(Math.floor($("html,body").scrollTop()*0.7));
+						if(winy==0){
+							clearInterval(t1);
+							console.log(1);
+						}
+					},20)
+				})
+				$("details").eq(0).attr("open","open");
 			})
+			
 			
 		</script>
 		
@@ -885,5 +906,6 @@
 				</div>
 			</details>
 		</div>
+		<img class="huojian" src="img/huojian.png" />
 	</body>
 </html>
