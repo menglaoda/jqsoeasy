@@ -53,13 +53,115 @@
 				font-size: 14px;
 				font-weight: 900;
 			}
+			.bar{
+				position: fixed;
+				width: 100%;
+				height: 100vh;
+				background: #333;
+				top: 0;
+				left: 0;	
+				display: none;	
+				padding:10px 20px;
+				box-sizing: border-box;		
+			}
+			.redbox{
+				width: 100px;
+				height: 100px;
+				background: red;
+				position: absolute;
+				top: 100px;
+				left: 20px;
+			}
+			.bar span{
+				width: 20px;
+				height: 20px;
+				border: solid 1px white;
+				border-radius: 100%;
+				display: block;
+				position: absolute;
+				top: 5px;
+				right: 5px;
+				text-align: center;
+				line-height: 20px;
+				color: white;
+				cursor: pointer;
+			}
 		</style>
 		
 		<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js" ></script>
-		<script>
-			
+		<script>			
 			$(function(){
+				$(".bar span").click(function(){
+					$(".bar").hide();
+				})
 				//在这里写你的代码
+				$(".btn").click(function(){
+					$(".bar").show();
+				})
+				
+				$(".show-btn").click(function(){
+					$(".redbox").show();
+				})
+				
+				$(".hide-btn").click(function(){
+					$(".redbox").hide();
+				})
+				
+				$(".toggle-btn").click(function(){
+					$(".redbox").toggle();
+				})
+				
+				$(".slideDown-btn").click(function(){
+					$(".redbox").slideDown(3000,"linear",function(){
+						$(".redbox").hide();
+					});
+				})
+				
+				$(".slideUp-btn").click(function(){
+					$(".redbox").slideUp();
+				})
+				
+				$(".slideToggle-btn").click(function(){
+					$(".redbox").slideToggle();
+				})
+				
+				$(".fadeIn-btn").click(function(){
+					$(".redbox").fadeIn();
+				})
+				
+				$(".fadeOut-btn").click(function(){
+					$(".redbox").fadeOut();
+				})
+				
+				$(".fadeTo-btn").click(function(){
+					$(".redbox").fadeTo(2000,0.5,"linear");
+				})
+				
+				$(".fadeToggle-btn").click(function(){
+					$(".redbox").fadeToggle();
+				})
+				
+				$(".animate-btn").click(function(){
+					$(".redbox").animate({
+						left:1000,
+						top:200,
+						width:200,
+						height:300,
+						opacity:0.5
+					},5000,"linear",function(){
+						$(".redbox").animate({
+							left:20,
+							top:100,
+							width:100,
+							height:100,
+							opacity:1
+						},5000,"linear")
+					})
+				})
+				
+				$(".stop-btn").click(function(){
+					$(".redbox").stop();
+				})
 			})
 			
 		</script>
@@ -474,7 +576,7 @@
 				</div>
 			</details>	
 			<details>
-				<summary class="oh3">7.事件</summary>
+				<summary class="oh3">7. 事件</summary>
 				<div class="box">
 					<details>
 						<summary class="oh4">7.1 添加事件</summary>
@@ -500,6 +602,284 @@
 						<img src="img/90.png" />
 						<p>jQuery 代码:</p>
 						<img src="img/94.png" />
+					</details>
+				</div>
+			</details>
+			<details>
+				<summary class="oh3">8. 文档处理</summary>
+				<div class="box">
+					<details>
+						<summary class="oh4">8.1 创建标签</summary>
+						<p>jQuery 代码:</p>
+						<img src="img/95.png" />
+					</details>
+					<details>
+						<summary class="oh4">8.2 append</summary>
+						<p>向每个匹配的元素内部追加内容。</p>
+						<p>HTML 代码:</p>
+						<img src="img/96.png" />
+						<p>jQuery 代码:</p>
+						<img src="img/97.png" />
+						<p>结果:</p>
+						<img src="img/98.png" />
+					</details>
+					<details>
+						<summary class="oh4">8.3 appendTo</summary>
+						<p>把所有匹配的元素追加到另一个指定的元素元素集合中。</p>
+						<p>HTML 代码:</p>
+						<img src="img/96.png" />
+						<p>jQuery 代码:</p>
+						<img src="img/99.png" />
+						<p>结果:</p>
+						<img src="img/98.png" />
+					</details>
+					<details>
+						<summary class="oh4">8.4 after</summary>
+						<p>在每个匹配的元素之后插入内容。</p>
+						<p>HTML 代码:</p>
+						<img src="img/96.png" />
+						<p>jQuery 代码:</p>
+						<img src="img/100.png" />
+						<p>结果:</p>
+						<img src="img/101.png" />
+					</details>
+					<details>
+						<summary class="oh4">8.5 before</summary>
+						<p>在每个匹配的元素之前插入内容。</p>
+						<p>HTML 代码:</p>
+						<img src="img/96.png" />
+						<p>jQuery 代码:</p>
+						<img src="img/102.png" />
+						<p>结果:</p>
+						<img src="img/103.png" />
+					</details>
+					<details>
+						<summary class="oh4">8.6 remove</summary>
+						<p>从DOM中删除所有匹配的元素。</p>
+						<p>HTML 代码:</p>
+						<img src="img/96.png" />
+						<p>jQuery 代码:</p>
+						<img src="img/104.png" />
+						<p>结果:</p>
+						<img src="img/105.png" />
+					</details>
+					<details>
+						<summary class="oh4">8.7 clone</summary>
+						<p>克隆匹配的DOM元素并且选中这些克隆的副本。</p>
+						<p>HTML 代码:</p>
+						<img src="img/106.png" />
+						<p>jQuery 代码:</p>
+						<img src="img/107.png" />
+					</details>
+				</div>
+			</details>
+			<details>
+				<summary class="oh3">9. CSS</summary>
+				<div class="box">
+					<details>
+						<summary class="oh4">9.1 css</summary>
+						<p>访问匹配元素的样式属性。</p>
+						<p>HTML 代码:</p>
+						<img src="img/108.png" />
+						<p>CSS 代码:</p>
+						<img src="img/109.png" />
+						<p>jQuery 代码:</p>
+						<img src="img/110.png" />
+						<p>结果:</p>
+						<img src="img/111.png" />
+					</details>
+				</div>
+				<div class="box">
+					<details>
+						<summary class="oh4">9.2 offset</summary>
+						<p>获取匹配元素在当前视口的相对偏移。</p>
+						<p>jQuery 代码:</p>
+						<img src="img/112.png" />
+					</details>
+				</div>
+				<div class="box">
+					<details>
+						<summary class="oh4">9.3 position</summary>
+						<p>获取匹配元素相对父元素的偏移。</p>
+						<p>jQuery 代码:</p>
+						<img src="img/113.png" />
+					</details>
+				</div>
+				<div class="box">
+					<details>
+						<summary class="oh4">9.4 scrollTop和scrollLeft</summary>
+						<p>获取匹配元素相对滚动条顶部的偏移和左侧的偏移</p>
+						<p>jQuery 代码:</p>
+						<img src="img/114.png" />
+					</details>
+				</div>
+				<div class="box">
+					<details>
+						<summary class="oh4">9.5 height,innerHeight,outerHeight</summary>
+						<p>jQuery 代码:</p>
+						<img src="img/115.png" />
+					</details>
+				</div>
+				<div class="box">
+					<details>
+						<summary class="oh4">9.6 width,innerWidth,outerWidth</summary>
+						<p>jQuery 代码:</p>
+						<img src="img/116.png" />
+					</details>
+				</div>
+			</details>
+			<details>
+				<summary class="oh3">10. event</summary>
+				<img src="img/117.png" />
+			</details>
+			<details >
+				<summary class="oh3">11. 效果</summary>
+				<br />
+				<button class="btn">查看效果演示：</button>
+				<div class="box">
+					<h4>speed:三种预定速度之一的字符串("slow","normal", or "fast")或表示动画时长的毫秒数值(如：1000)</h4>
+					<h4>easing:(Optional) 用来指定切换效果，默认是"swing"，可用参数"linear"</h4>					
+					<h4>fn:在动画完成时执行的函数，每个元素执行一次。</h4>
+
+					<details>
+						<summary class="oh4">11.1 show([speed],[easing],[fn])</summary>
+						<p>显示隐藏的匹配元素。</p>
+						<p>jQuery 代码:</p>
+						<img src="img/118.png" />
+					</details>
+				</div>
+				<div class="box">
+					<details>
+						<summary class="oh4">11.2 hide([speed],[easing],[fn])</summary>
+						<p>隐藏显示的元素。</p>
+						<p>jQuery 代码:</p>
+						<img src="img/119.png" />
+					</details>
+				</div>
+				<div class="box">
+					<details>
+						<summary class="oh4">11.3 toggle([speed],[easing],[fn])</summary>
+						<p>如果元素是可见的，切换为隐藏的；如果元素是隐藏的，切换为可见的。</p>
+						<p>jQuery 代码:</p>
+						<img src="img/120.png" />
+					</details>
+				</div>
+				<div class="box">
+					<details>
+						<summary class="oh4">11.4 slideDown([speed],[easing],[fn])</summary>
+						<p>通过高度变化（向下增大）来动态地显示所有匹配的元素。</p>
+						<p>jQuery 代码:</p>
+						<img src="img/121.png" />
+					</details>
+				</div>
+				<div class="box">
+					<details>
+						<summary class="oh4">11.5 slideUp([speed],[easing],[fn])</summary>
+						<p>通过高度变化（向上减小）来动态地隐藏所有匹配的元素。</p>
+						<p>jQuery 代码:</p>
+						<img src="img/122.png" />
+					</details>
+				</div>
+				<div class="box">
+					<details>
+						<summary class="oh4">11.6 slideToggle([speed],[easing],[fn])</summary>
+						<p>通过高度变化来切换所有匹配元素的可见性，并在切换完成后可选地触发一个回调函数。</p>
+						<p>jQuery 代码:</p>
+						<img src="img/123.png" />
+					</details>
+				</div>
+				<div class="box">
+					<details>
+						<summary class="oh4">11.7  fadeIn([speed],[easing],[fn]) </summary>
+						<p>通过不透明度的变化来实现所有匹配元素的淡入效果。</p>
+						<p>jQuery 代码:</p>
+						<img src="img/124.png" />
+					</details>
+				</div>
+				<div class="box">
+					<details>
+						<summary class="oh4">11.8 fadeOut([speed],[easing],[fn])</summary>
+						<p>通过不透明度的变化来实现所有匹配元素的淡出效果。</p>
+						<p>jQuery 代码:</p>
+						<img src="img/125.png" />
+					</details>
+				</div>
+				<div class="box">
+					<details>
+						<summary class="oh4">11.9 fadeTo([[speed],opacity,[easing],[fn]]) </summary>
+						<p>把所有匹配元素的不透明度以渐进方式调整到指定的不透明度。</p>
+						<p>jQuery 代码:</p>
+						<img src="img/126.png" />
+					</details>
+				</div>
+				<div class="box">
+					<details>
+						<summary class="oh4">11.10 fadeToggle([speed],[easing],[fn]) </summary>
+						<p>通通过不透明度的变化来开关所有匹配元素的淡入和淡出效果。</p>
+						<p>jQuery 代码:</p>
+						<img src="img/127.png" />
+					</details>
+				</div>
+				<div class="box">
+					<details>
+						<summary class="oh4">11.11 animate(params,[speed],[easing],[fn]) </summary>
+						<p>用于创建自定义动画的函数。</p>
+						<p>params:一组包含作为动画属性和终值的样式属性和及其值的集合</p>
+						<p>speed:三种预定速度之一的字符串("slow","normal", or "fast")或表示动画时长的毫秒数值(如：1000)</p>						
+						<p>easing:要使用的擦除效果的名称(需要插件支持).默认jQuery提供"linear" 和 "swing".</p>						
+						<p>fn:在动画完成时执行的函数，每个元素执行一次。</p>
+
+						<p>jQuery 代码:</p>
+						<img src="img/128.png" />
+					</details>
+				</div>
+				<div class="box">
+					<details>
+						<summary class="oh4">11.12 stop</summary>
+						<p>停止所有在指定元素上正在运行的动画。</p>
+						<p>jQuery 代码:</p>
+						<img src="img/129.png" />
+					</details>
+				</div>
+				<div class="bar">
+					<span>×</span>
+					<button class="show-btn">show</button>
+					<button class="hide-btn">hide</button>
+					<button class="toggle-btn">toggle</button>
+					<button class="slideDown-btn">slideDown</button>
+					<button class="slideUp-btn">slideUp</button>
+					<button class="slideToggle-btn">slideToggle</button>
+					<button class="fadeIn-btn">fadeIn</button>
+					<button class="fadeOut-btn">fadeOut</button>
+					<button class="fadeTo-btn">fadeTo</button>
+					<button class="fadeToggle-btn">fadeToggle</button>
+					<button class="animate-btn">animate</button>
+					<button class="stop-btn">stop</button>
+					<div class="redbox"></div>
+				</div>
+			</details>
+			<details>
+				<summary class="oh3">12. Ajax</summary>
+				<div class="box">
+					<details class="oh4">
+						<summary class="oh4">12.1 ajax</summary>
+						<p>通过 HTTP 请求加载远程数据。</p>
+						<p>HTML 代码:</p>
+						<img src="img/130.png" />
+						<p>json代码:</p>
+						<img src="img/131.png" />
+						<p>jQuery 代码:</p>
+						<img src="img/132.png" />
+						<p>结果:</p>
+						<img src="img/133.png" />
+					</details>
+				</div>
+				<div class="box">
+					<details class="oh4">
+						<summary class="oh4">12.2 load</summary>
+						<p>载入远程 HTML 文件代码并插入至 DOM 中。</p>
+						<p>jQuery 代码:</p>
+						<img src="img/134.png" />
 					</details>
 				</div>
 			</details>
