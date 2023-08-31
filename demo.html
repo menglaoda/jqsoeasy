@@ -15,7 +15,7 @@
 
 	<body>
 		<div id="myLocation"></div>
-		<button id="btn">按钮222</button>
+		<button id="btn">按钮444</button>
 		<div id="container"></div> 
 	</body>
 	<script type="text/javascript">
@@ -58,17 +58,17 @@
 				    bm.addControl(new BMapGL.ZoomControl());
 				
 				    //添加gps marker和label
-				    var markergg = new BMapGL.Marker(ggPoint);
-				    bm.addOverlay(markergg); //添加GPS marker
-				    var labelgg = new BMapGL.Label("未转换的GPS坐标（错误）",{offset:new BMapGL.Size(10, -10)});
-				    markergg.setLabel(labelgg); //添加GPS label
+//				    var markergg = new BMapGL.Marker(ggPoint);
+//				    bm.addOverlay(markergg); //添加GPS marker
+//				    var labelgg = new BMapGL.Label("未转换的GPS坐标（错误）",{offset:new BMapGL.Size(10, -10)});
+//				    markergg.setLabel(labelgg); //添加GPS label
 			
-				   setTimeout(function(){
+//				   setTimeout(function(){
 				        var convertor = new BMapGL.Convertor();
 				        var pointArr = [];
 				        pointArr.push(ggPoint);
 				        convertor.translate(pointArr, COORDINATES_WGS84, COORDINATES_BD09, translateCallback)
-				    }, 1000);
+//				    }, 1000);
 			}
 
 
