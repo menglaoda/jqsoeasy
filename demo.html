@@ -9,11 +9,15 @@
 
 	<body>
 		<div id="myLocation"></div>
-
+		<button id="btn">按钮</button>
 	</body>
-<script type="text/javascript">
+	<script type="text/javascript">
 			var ml = document.getElementById("myLocation");
-
+			var btn = document.getElementById("btn");
+			btn.onclick = function(){
+				getUserLocation();
+			}
+			
 			function getUserLocation() {
 				if("geolocation" in navigator) {
 					var options = {
@@ -21,8 +25,8 @@
 						maximumAge: 30000,
 						timeout: 27000
 					};
-					navigator.geolocation.getCurrentPosition(success, error, options);
-					var watchID = navigator.geolocation.watchPosition(success, error, options);
+					//navigator.geolocation.getCurrentPosition(success, error, options);
+					navigator.geolocation.watchPosition(success, error, options);
 				} else {
 					ml.innerHTML = "您的浏览器不支持定位！";
 				}
@@ -33,13 +37,7 @@
 				var lat = coords.latitude;
 				var lng = coords.longitude;
 				ml.innerHTML = "您当前所在的位置：经度" + lat + ";纬度：" + lng;
-				//只有firefox支持address属性
-				if(typeof position.address !== "undefined") {
-					var country = position.address.country;
-					var province = position.address.region;
-					var city = position.address.city;
-					ml.innerHTML += "您的地址" + country + province + city;
-				}
+				
 			}
 
 			function error(error) {
@@ -55,9 +53,6 @@
 						break;
 				}
 				ml.style.color = "red";
-			}
-			window.onload = function() {
-				getUserLocation();
 			}
 		</script>
 </html>
