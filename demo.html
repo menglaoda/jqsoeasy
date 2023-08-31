@@ -15,7 +15,7 @@
 
 	<body>
 		<div id="myLocation"></div>
-		<button id="btn">按钮123</button>
+		<button id="btn">按钮222</button>
 		<div id="container"></div> 
 	</body>
 	<script type="text/javascript">
@@ -23,7 +23,7 @@
 			var btn = document.getElementById("btn");
 			var point;
 			//创建地图实例
-			var map = new BMapGL.Map("container");
+			var bm = new BMapGL.Map("container");
 			
 			//btn.onclick = function(){
 				getUserLocation();
@@ -47,42 +47,30 @@
 				var coords = position.coords;
 				var lng = coords.longitude;
 				var lat = coords.latitude;
+				ml.innerHTML = "您当前所在的位置：经度" + lng + ";纬度：" + lat;				
+				    //GPS坐标
+				    var x = lng;
+				    var y = lat;
+				    var ggPoint = new BMapGL.Point(x,y);
 				
-				ml.innerHTML = "您当前所在的位置：经度" + lng + ";纬度：" + lat;
+				    //地图初始化
+				    bm.centerAndZoom(ggPoint, 15);
+				    bm.addControl(new BMapGL.ZoomControl());
 				
-				//设置中心点坐标
-				 point = new BMapGL.Point(lng, lat);
-				
-				//地图初始化，同时设置地图展示级别
-				map.centerAndZoom(point, 15); 
-				map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
-				var scaleCtrl = new BMapGL.ScaleControl();  // 添加比例尺控件
-				map.addControl(scaleCtrl);
-				var zoomCtrl = new BMapGL.ZoomControl();  // 添加缩放控件
-				map.addControl(zoomCtrl);
-				var cityCtrl = new BMapGL.CityListControl();  // 添加城市列表控件
-				map.addControl(cityCtrl);
+				    //添加gps marker和label
+				    var markergg = new BMapGL.Marker(ggPoint);
+				    bm.addOverlay(markergg); //添加GPS marker
+				    var labelgg = new BMapGL.Label("未转换的GPS坐标（错误）",{offset:new BMapGL.Size(10, -10)});
+				    markergg.setLabel(labelgg); //添加GPS label
+			
+				   setTimeout(function(){
+				        var convertor = new BMapGL.Convertor();
+				        var pointArr = [];
+				        pointArr.push(ggPoint);
+				        convertor.translate(pointArr, COORDINATES_WGS84, COORDINATES_BD09, translateCallback)
+				    }, 1000);
 			}
-			translateCallback = function (data){
-		      if(data.status === 0) {
-		        console.log(data.points[0])
-		        var geoc = new BMapGL.Geocoder();
-		        var pt = new BMapGL.Point(data.points[0].lng,data.points[0].lat);
-		        geoc.getLocation(pt, function(rs){
-					var addComp = rs.addressComponents;
-					alert(addComp.province + " " + addComp.city + " " + addComp.district + " " + addComp.street + " " + addComp.streetNumber);
-		        });
-		        
-		      }
-		    }
 
-			setTimeout(function(){
-				var con = new BMapGL.Convertor();
-				var poi = [];
-				poi.push(point);
-				con.translate(poi,1,5,translateCallback);
-				 
-			},1000);
 
 			function error(error) {
 				switch(error.code) {
@@ -98,5 +86,21 @@
 				}
 				ml.style.color = "red";
 			}
+			
+			  // 百度地图API功能
+
+
+    //坐标转换完之后的回调函数
+    translateCallback = function (data){
+      if(data.status === 0) {
+        var marker = new BMapGL.Marker(data.points[0]);
+        bm.addOverlay(marker);
+        var label = new BMapGL.Label("转换后的百度坐标（正确）",{offset:new BMapGL.Size(10, -10)});
+        marker.setLabel(label); //添加百度label
+        bm.setCenter(data.points[0]);
+      }
+    }
+
+ 
 		</script>
 </html>
