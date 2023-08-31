@@ -29,13 +29,13 @@
 //			10W14fXXO0VElPqlcgbxfGxqTBfExGlo
 			function getUserLocation() {
 				if("geolocation" in navigator) {
-					var options = {
-						enableHighAccuracy: true,
-						maximumAge: 30000,
-						timeout: 27000
-					};
-					//navigator.geolocation.getCurrentPosition(success, error, options);
-					navigator.geolocation.watchPosition(success, error, options);
+//					var options = {
+//						enableHighAccuracy: true,
+//						maximumAge: 30000,
+//						timeout: 27000
+//					};
+					navigator.geolocation.getCurrentPosition(success, error);
+					//navigator.geolocation.watchPosition(success, error, options);
 				} else {
 					ml.innerHTML = "您的浏览器不支持定位！";
 				}
