@@ -21,8 +21,9 @@
 	<script type="text/javascript">
 			var ml = document.getElementById("myLocation");
 			var btn = document.getElementById("btn");
+			var point;
 			//创建地图实例
-				var map = new BMapGL.Map("container");
+			var map = new BMapGL.Map("container");
 			
 			//btn.onclick = function(){
 				getUserLocation();
@@ -50,8 +51,7 @@
 				ml.innerHTML = "您当前所在的位置：经度" + lng + ";纬度：" + lat;
 				
 				//设置中心点坐标
-				var point = new BMapGL.Point(lng, lat);
-				
+				 point = new BMapGL.Point(lng, lat);
 				
 				//地图初始化，同时设置地图展示级别
 				map.centerAndZoom(point, 15); 
@@ -63,6 +63,26 @@
 				var cityCtrl = new BMapGL.CityListControl();  // 添加城市列表控件
 				map.addControl(cityCtrl);
 			}
+			translateCallback = function (data){
+		      if(data.status === 0) {
+		        console.log(data.points[0])
+		        var geoc = new BMapGL.Geocoder();
+		        var pt = new BMapGL.Point(data.points[0].lng,data.points[0].lat);
+		        geoc.getLocation(pt, function(rs){
+					var addComp = rs.addressComponents;
+					alert(addComp.province + " " + addComp.city + " " + addComp.district + " " + addComp.street + " " + addComp.streetNumber);
+		        });
+		        
+		      }
+		    }
+
+			setTimeout(function(){
+				var con = new BMapGL.Convertor();
+				var poi = [];
+				poi.push(point);
+				con.translate(poi,1,5,translateCallback);
+				 
+			},1000);
 
 			function error(error) {
 				switch(error.code) {
