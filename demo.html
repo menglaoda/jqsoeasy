@@ -46,10 +46,10 @@
 				var coords = position.coords;
 				var lat = coords.latitude;
 				var lng = coords.longitude;
-				ml.innerHTML = "您当前所在的位置：经度" + lat + ";纬度：" + lat;
+				ml.innerHTML = "您当前所在的位置：经度" + lat + ";纬度：" + lng;
 				
 				//设置中心点坐标
-				var point = new BMapGL.Point(lat, lat);
+				var point = new BMapGL.Point(lat, lng);
 				
 				
 				//地图初始化，同时设置地图展示级别
