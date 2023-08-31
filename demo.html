@@ -15,7 +15,7 @@
 
 	<body>
 		<div id="myLocation"></div>
-		<button id="btn">按钮啊啊</button>
+		<button id="btn">按钮123</button>
 		<div id="container"></div> 
 	</body>
 	<script type="text/javascript">
@@ -24,19 +24,19 @@
 			//创建地图实例
 				var map = new BMapGL.Map("container");
 			
-			btn.onclick = function(){
+			//btn.onclick = function(){
 				getUserLocation();
-			}
+			//}
 //			10W14fXXO0VElPqlcgbxfGxqTBfExGlo
 			function getUserLocation() {
 				if("geolocation" in navigator) {
-//					var options = {
-//						enableHighAccuracy: true,
-//						maximumAge: 30000,
-//						timeout: 27000
-//					};
-					navigator.geolocation.getCurrentPosition(success, error);
-					//navigator.geolocation.watchPosition(success, error, options);
+					var options = {
+						enableHighAccuracy: true,
+						maximumAge: 30000,
+						timeout: 27000
+					};
+					//navigator.geolocation.getCurrentPosition(success, error);
+					navigator.geolocation.watchPosition(success, error, options);
 				} else {
 					ml.innerHTML = "您的浏览器不支持定位！";
 				}
